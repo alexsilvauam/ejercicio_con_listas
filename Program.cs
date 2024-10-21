@@ -193,13 +193,20 @@ namespace Ejercicios_Listas
 
         public static void MostrarProductos(List<Producto> inventario)
         {
-            foreach (Producto producto in inventario)
+            if (inventario.Count > 0)
             {
-                Console.WriteLine($"Código: {producto.Codigo}");
-                Console.WriteLine($"Nombre: {producto.Nombre}");
-                Console.WriteLine($"Cantidad: {producto.Cantidad}");
-                Console.WriteLine($"Precio: {producto.Precio}");
-                Console.WriteLine("-------------------------");
+                foreach (Producto producto in inventario)
+                {
+                    Console.WriteLine($"Código: {producto.Codigo}");
+                    Console.WriteLine($"Nombre: {producto.Nombre}");
+                    Console.WriteLine($"Cantidad: {producto.Cantidad}");
+                    Console.WriteLine($"Precio: {producto.Precio}");
+                    Console.WriteLine("-------------------------");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No existen productos.");
             }
 
             Console.ReadKey();
@@ -244,6 +251,7 @@ namespace Ejercicios_Listas
                 Console.Clear();
             }
         }
+
         public static void ConsultarSaldo(decimal saldo)
         {
             Console.WriteLine($"Saldo actual: {saldo}");
@@ -287,7 +295,7 @@ namespace Ejercicios_Listas
             List<Tuple<string, string>> diccionario = new List<Tuple<string, string>>();
             Console.ReadKey();
             Console.Clear();
-            
+
             for (int i = 0; i < 5; i++)
             {
                 Console.Write($"Ingrese la palabra {i + 1} en inglés: ");
@@ -313,7 +321,7 @@ namespace Ejercicios_Listas
                     encontrado = true;
                     break;
                 }
-                else 
+                else
                 if (duo.Item2.Equals(clave, StringComparison.OrdinalIgnoreCase))
                 {
                     Console.WriteLine($"La traducción de la palabra {clave} es: {duo.Item1}.");
